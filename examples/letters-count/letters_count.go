@@ -2,9 +2,11 @@ package examples
 
 import "strings"
 
-func lettersCount(s string) map[string]int {
+type lettersCountMap map[string]int
+
+func lettersCount(s string) lettersCountMap {
 	splitted := strings.Split(s, "")
-	countMap := map[string]int{}
+	countMap := lettersCountMap{}
 
 	for _, char := range splitted {
 		entry, exists := countMap[char]

@@ -9,7 +9,7 @@ import (
 func TestLettersCount(t *testing.T) {
 	result := lettersCount("abb")
 
-	expectedResult := map[string]int{
+	expectedResult := lettersCountMap{
 		"a": 1,
 		"b": 2,
 	}
