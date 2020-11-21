@@ -16,3 +16,9 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: user@domain.com
       PGADMIN_DEFAULT_PASSWORD: SuperSecret
+
+  redis:
+    image: redis:6.0.9-buster
+    ports:
+      - "6379:6379"
+      - "16379:16379"
