@@ -22,3 +22,8 @@ services:
     ports:
       - "6379:6379"
       - "16379:16379"
+
+  redisinsight:
+    image: redislabs/redisinsight:1.8.0
+    ports:
+      - "8001:8001"
