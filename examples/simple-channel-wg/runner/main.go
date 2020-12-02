@@ -7,11 +7,7 @@ import (
 )
 
 func main() {
-	returnChannel := make(chan []int)
-
-	go examples.SimpleChannelWg(10, returnChannel)
-
-	result := <-returnChannel
+	result := examples.SimpleChannelWg(10)
 	for _, v := range result {
 		fmt.Printf("%d ", v)
 	}

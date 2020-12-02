@@ -7,12 +7,7 @@ import (
 )
 
 func TestSimpleChannelWg(t *testing.T) {
-	resultChannel := make(chan []int)
-
-	go SimpleChannelWg(10, resultChannel)
-
-	result := <-resultChannel
-
+	result := SimpleChannelWg(10)
 	expectedValues := []int{2, 4, 6, 8, 10}
 	for _, v := range expectedValues {
 		assert.Contains(t, result, v)

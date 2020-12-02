@@ -5,7 +5,7 @@ import (
 )
 
 // SimpleChannelWg ...
-func SimpleChannelWg(times int, returnChannel chan []int) {
+func SimpleChannelWg(times int) []int {
 	wg := &sync.WaitGroup{}
 	wg.Add(times)
 
@@ -15,17 +15,15 @@ func SimpleChannelWg(times int, returnChannel chan []int) {
 		go timesTwo(i+1, outputChannel, wg)
 	}
 
-	go func() {
-		wg.Wait()
+	wg.Wait()
 
-		var result []int
-		for i := 0; i < times; i++ {
-			value := <-outputChannel
-			result = append(result, value)
-		}
+	var result []int
+	for i := 0; i < times; i++ {
+		value := <-outputChannel
+		result = append(result, value)
+	}
 
-		returnChannel <- result
-	}()
+	return result
 }
 
 func timesTwo(value int, result chan int, wg *sync.WaitGroup) {
