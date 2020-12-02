@@ -14,7 +14,6 @@ func SimpleChannel(times int) []int {
 		result = append(result, value)
 	}
 
-	close(outputChannel)
 	return result
 }
 
